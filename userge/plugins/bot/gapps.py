@@ -32,7 +32,11 @@ if userge.has_bot:
     @userge.bot.on_callback_query(filters.regex(pattern=r"^open_gapps$"))
     async def open_cb(_, callback_query: CallbackQuery):
         u_id = callback_query.from_user.id
-        if u_id in Config.OWNER_ID or u_id in Config.SUDO_USERS or u_id in Config.TRUSTED_SUDO_USERS:
+        if (
+            u_id in Config.OWNER_ID
+            or u_id in Config.SUDO_USERS
+            or u_id in Config.TRUSTED_SUDO_USERS
+        ):
             gapps_link = []
             r = requests.get(
                 "https://raw.githubusercontent.com/Pharuxtan/OpenGappsFetcher/master/gapps.json"
@@ -84,7 +88,11 @@ if userge.has_bot:
     @userge.bot.on_callback_query(filters.regex(pattern=r"^flame_gapps$"))
     async def flame_cb(_, callback_query: CallbackQuery):
         u_id = callback_query.from_user.id
-        if u_id in Config.OWNER_ID or u_id in Config.SUDO_USERS or u_id in Config.TRUSTED_SUDO_USERS:
+        if (
+            u_id in Config.OWNER_ID
+            or u_id in Config.SUDO_USERS
+            or u_id in Config.TRUSTED_SUDO_USERS
+        ):
             link = "https://sourceforge.net/projects/flamegapps/files/arm64/android-10/"
             url = get(link)
             if url.status_code == 404:
@@ -119,7 +127,11 @@ if userge.has_bot:
     @userge.bot.on_callback_query(filters.regex(pattern=r"^nik_gapps$"))
     async def nik_cb(_, callback_query: CallbackQuery):
         u_id = callback_query.from_user.id
-        if u_id in Config.OWNER_ID or u_id in Config.SUDO_USERS or u_id in Config.TRUSTED_SUDO_USERS:
+        if (
+            u_id in Config.OWNER_ID
+            or u_id in Config.SUDO_USERS
+            or u_id in Config.TRUSTED_SUDO_USERS
+        ):
             link = (
                 "https://sourceforge.net/projects/nikgapps/files/Releases/NikGapps-Q/"
             )

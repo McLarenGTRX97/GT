@@ -25,7 +25,6 @@ async def jc(message: Message):
     return await message.reply("Joined")
 
 
-
 @userge.on_cmd(
     "click",
     about={

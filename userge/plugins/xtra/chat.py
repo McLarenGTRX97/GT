@@ -152,7 +152,9 @@ async def tagall_(message: Message):
     text = f"**{text}**\n" if text else ""
     message_id = replied.message_id if replied else None
     try:
-        async for members in message.client.iter_chat_members(c_id, limit=50, filter="recent"):
+        async for members in message.client.iter_chat_members(
+            c_id, limit=50, filter="recent"
+        ):
             if not members.user.is_bot:
                 u_id = members.user.id
                 u_name = members.user.username or None

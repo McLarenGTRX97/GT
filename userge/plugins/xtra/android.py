@@ -57,8 +57,6 @@ async def magisk_(message: Message):
     releases = "<code><i>𝗟𝗮𝘁𝗲𝘀𝘁 𝗠𝗮𝗴𝗶𝘀𝗸 𝗥𝗲𝗹𝗲𝗮𝘀𝗲:</i></code>\n\n"
     for name, release_url in magisk_dict.items():
         data = get(release_url).json()
-        releases += (
-            f'{name}  :   [APK v{data["magisk"]["version"]}]({data["magisk"]["link"]})\n'
-        )
+        releases += f'{name}  :   [APK v{data["magisk"]["version"]}]({data["magisk"]["link"]})\n'
 
     await message.edit(releases, disable_web_page_preview=True)
