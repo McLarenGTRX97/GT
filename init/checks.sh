@@ -50,6 +50,7 @@ _checkDefaultVars() {
         [SUDO_TRIGGER]="!"
         [FINISHED_PROGRESS_STR]="█"
         [UNFINISHED_PROGRESS_STR]="░"
+        [NEKO_API]="https://hmtai.herokuapp.com/nsfw/"
     )
     for key in ${!def_vals[@]}; do
         set -a
@@ -153,6 +154,15 @@ _flushMessages() {
     deleteLastMessage
 }
 
+_server() {
+    if test $APACHE2 ; then 
+        service apache2 restart
+        echo "Started..."
+    else
+        echo "Skipping..."
+    fi
+}
+
 assertPrerequisites() {
 #    _checkBashReq
     _checkConfigFile
@@ -168,4 +178,5 @@ assertEnvironment() {
 #    _checkUnoffPlugins
 #    _checkCustomPlugins
     _flushMessages
+    _server
 }
