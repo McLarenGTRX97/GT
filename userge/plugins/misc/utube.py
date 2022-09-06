@@ -246,7 +246,7 @@ def _tubeDl(url: list, prog, starttime, uid=None):
         "prefer_ffmpeg": True,
         "postprocessors": [{"key": "FFmpegMetadata"}],
     }
-    _quality = {"format": "bestvideo+bestaudio/best" if not uid else str(uid)}
+    _quality = {"format": "bv[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" if not uid else str(uid)}
     _opts.update(_quality)
     try:
         x = ytdl.YoutubeDL(_opts)
